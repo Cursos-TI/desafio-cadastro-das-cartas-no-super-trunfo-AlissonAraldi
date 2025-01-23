@@ -126,9 +126,9 @@ int main() {
     printf ("***Apresento as suas Cartas***\n\n");
     printf("PAÍS: %s - %s\n", pais1, Aestado);
     printf("1. Carta A1 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", A1cidade, A1popul, A1area, A1pib, A1turist, A1dens, A1pcap);
-    printf("2. Carta A2 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", A2cidade, A2popul, A2area, A2pib, A2turist, A2dens, A2pcap);
+    printf("2. Carta A2 - Cidade: %s \tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", A2cidade, A2popul, A2area, A2pib, A2turist, A2dens, A2pcap);
     printf("3. Carta A3 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", A3cidade, A3popul, A3area, A3pib, A3turist, A3dens, A3pcap);
-    printf("4. Carta A4 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", A4cidade, A4popul, A4area, A4pib, A4turist, A4dens, A4pcap);
+    printf("4. Carta A4 - Cidade: %s \tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", A4cidade, A4popul, A4area, A4pib, A4turist, A4dens, A4pcap);
 
     // printf("\nPAÍS: %s - %s\n", pais1, Bestado);
     // printf("Carta B1 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", B1cidade, B1popul, B1area, B1pib, B1turist, B1dens, B1pcap);
@@ -143,6 +143,9 @@ int main() {
         switch (Jcarta)
         {
         case 1:
+            if(Mcarta == 1){
+                printf("Carta A1 - %s x %s - Carta B1\n", A1cidade, B1cidade);
+            }
             printf("Opção 1\n");
             break;
         case 2:
