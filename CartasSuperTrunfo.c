@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das Cartas
@@ -13,12 +14,16 @@ int main() {
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     char pais1[30], Aestado[30], A1cidade[30], A2cidade[30], A3cidade[30], A4cidade[30], Bestado[30], B1cidade[30], B2cidade[30], B3cidade[30], B4cidade[30];
     int A1turist, A2turist, A3turist, A4turist, B1turist, B2turist, B3turist, B4turist;
-    int decisao, cadastro;
+    int decisao, cadastro, Mcarta, Jcarta;
     long int A1popul, A1area, A2popul, A2area, A3popul, A3area, A4popul, A4area, B1popul, B1area, B2popul, B2area, B3popul, B3area, B4popul, B4area;
     float A1pib, A1dens, A1pcap, A2pib, A2dens, A2pcap, A3pib, A3dens, A3pcap, A4pib, A4dens, A4pcap, B1pib, B1dens, B1pcap, B2pib, B2dens, B2pcap, B3pib, B3dens, B3pcap, B4pib, B4dens, B4pcap;
 
-    // Cadastro
     cadastro = 1;
+    srand(time(0));
+      Mcarta = rand() % 4 + 1;
+    Jcarta = 0;
+
+    // Cadastro
     strcpy(pais1, "Brasil");
     //Estado
     strcpy(Aestado, "Goias");
@@ -31,7 +36,7 @@ int main() {
     A1dens = (float) A1popul / A1area;
     A1pcap = (float) A1pib / A1popul;
     // Carta2
-    strcpy(A2cidade, "Aparecida_de_Goiania");
+    strcpy(A2cidade, "Aparecida");
     A2popul = 550925;
     A2area = 290;
     A2pib = 22000.0;
@@ -118,18 +123,27 @@ int main() {
     //Jogar 
     //limpando a tela
     system("clear");
-    printf ("***Aprento as Cartas***\n\n");
+    printf ("***Apresento as suas Cartas***\n\n");
     printf("PAÍS: %s - %s\n", pais1, Aestado);
-    printf("Carta A1 - Cidade: %s           População: %ld  Área: %ld   PIB: %.2f   Pontos T.: %d Densidade: %.2f Per Capita: %.2f\n", A1cidade, A1popul, A1area, A1pib, A1turist, A1dens, A1pcap);
-    printf("Carta A2 - Cidade: %s           População: %ld  Área: %ld   PIB: %.2f   Pontos T.: %d Densidade: %.2f Per Capita: %.2f\n", A2cidade, A2popul, A2area, A2pib, A2turist, A2dens, A2pcap);
-    printf("Carta A3 - Cidade: %s           População: %ld  Área: %ld   PIB: %.2f   Pontos T.: %d Densidade: %.2f Per Capita: %.2f\n", A3cidade, A3popul, A3area, A3pib, A3turist, A3dens, A3pcap);
-    printf("Carta A4 - Cidade: %s           População: %ld  Área: %ld   PIB: %.2f   Pontos T.: %d Densidade: %.2f Per Capita: %.2f\n", A4cidade, A4popul, A4area, A4pib, A4turist, A4dens, A4pcap);
+    printf("1. Carta A1 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", A1cidade, A1popul, A1area, A1pib, A1turist, A1dens, A1pcap);
+    printf("2. Carta A2 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", A2cidade, A2popul, A2area, A2pib, A2turist, A2dens, A2pcap);
+    printf("3. Carta A3 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", A3cidade, A3popul, A3area, A3pib, A3turist, A3dens, A3pcap);
+    printf("4. Carta A4 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", A4cidade, A4popul, A4area, A4pib, A4turist, A4dens, A4pcap);
 
-    printf("\nPAÍS: %s - %s\n", pais1, Bestado);
-    printf("Carta B1 - Cidade: %s           População: %ld  Área: %ld   PIB: %.2f   Pontos T.: %d Densidade: %.2f Per Capita: %.2f\n", B1cidade, B1popul, B1area, B1pib, B1turist, B1dens, B1pcap);
-    printf("Carta B2 - Cidade: %s           População: %ld  Área: %ld   PIB: %.2f   Pontos T.: %d Densidade: %.2f Per Capita: %.2f\n", B2cidade, B2popul, B2area, B2pib, B2turist, B2dens, B2pcap);
-    printf("Carta B3 - Cidade: %s           População: %ld  Área: %ld   PIB: %.2f   Pontos T.: %d Densidade: %.2f Per Capita: %.2f\n", B3cidade, B3popul, B3area, B3pib, B3turist, B3dens, B3pcap);
-    printf("Carta B4 - Cidade: %s           População: %ld  Área: %ld   PIB: %.2f   Pontos T.: %d Densidade: %.2f Per Capita: %.2f\n", B4cidade, B4popul, B4area, B4pib, B4turist, B4dens, B4pcap);
+    // printf("\nPAÍS: %s - %s\n", pais1, Bestado);
+    // printf("Carta B1 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", B1cidade, B1popul, B1area, B1pib, B1turist, B1dens, B1pcap);
+    // printf("Carta B2 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", B2cidade, B2popul, B2area, B2pib, B2turist, B2dens, B2pcap);
+    // printf("Carta B3 - Cidade: %s \t\tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", B3cidade, B3popul, B3area, B3pib, B3turist, B3dens, B3pcap);
+    // printf("Carta B4 - Cidade: %s \tPopulação: %ld  \tÁrea: %ld   \tPIB: %.2f   \tPontos T.: %d \tDensidade: %.2f \tPer Capita: %.2f\n", B4cidade, B4popul, B4area, B4pib, B4turist, B4dens, B4pcap);
+    
+    printf("\nEscolha a sua Carta: ");
+    scanf("%d", &Jcarta);
+
+
+    
+    
+    
+    
     }
 
     // switch (decisao)
