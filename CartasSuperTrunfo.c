@@ -138,13 +138,28 @@ int main() {
     
     printf("\nEscolha a sua Carta: ");
     scanf("%d", &Jcarta);
-
-
-    
-    
-    
-    
     }
+    if (Jcarta > 0 && Jcarta < 5){
+        switch (Jcarta)
+        {
+        case 1:
+            printf("Opção 1\n");
+            break;
+        case 2:
+            printf("Opção 2\n");
+            break;
+        case 3:
+            printf("Opção 3\n");
+            break;
+        default:
+            printf("Opção 4\n");
+            break;
+        }
+    }else{
+        printf("Opção Invalida!\n\n");
+    }
+
+
 
     // switch (decisao)
     // {
