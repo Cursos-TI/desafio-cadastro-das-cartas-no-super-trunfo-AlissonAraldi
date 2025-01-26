@@ -17,11 +17,12 @@ int main() {
     int decisao, cadastro, Mcarta, Jcarta, jogador, maquina;
     long int A1popul, A1area, A2popul, A2area, A3popul, A3area, A4popul, A4area, B1popul, B1area, B2popul, B2area, B3popul, B3area, B4popul, B4area;
     float A1pib, A1dens, A1pcap, A2pib, A2dens, A2pcap, A3pib, A3dens, A3pcap, A4pib, A4dens, A4pcap, B1pib, B1dens, B1pcap, B2pib, B2dens, B2pcap, B3pib, B3dens, B3pcap, B4pib, B4dens, B4pcap;
+    float A1sup, A2sup, A3sup, A4sup, B1sup, B2sup, B3sup, B4sup;
 
     cadastro = 1;
-    // srand(time(0));
-    //   Mcarta = rand() % 4 + 1;
-    Mcarta = 1;
+    srand(time(0));
+    Mcarta = rand() % 4 + 1;
+    //Mcarta = 1;
     Jcarta = 0;
     jogador = 0;
     maquina = 0;
@@ -262,7 +263,7 @@ int main() {
 //#############################################################################################################################################################################         
            case 1:
                 printf("\n\t****** Jogador x Máquina ******\n");
-                printf("\tCarta A1 - %s x %s - Carta B1\n", A1cidade, B1cidade);
+                printf("%s - Carta A1 x Carta B1 - %s\n", A1cidade, B1cidade);
 
                 //Populacao
                 if (A1popul > B1popul) {
@@ -330,221 +331,321 @@ int main() {
                     printf("Empate - Carta A1 X Carta B1 - Empate \t**PIB Per Capita**\n", A1pcap, B1pcap);
                 }
                 
+                //Super poder 
+                if (A1sup > B1sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A1 X Carta B1 - Derrota \n", A1sup, B1sup);
+                    jogador ++;
+                } else if (A1sup < B1sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A1 X Carta B1 - Vitoria \n", A1sup, B1sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A1 X Carta B1 - Empate \n", A1sup, B1sup);
+                }
                 
-                printf("\nJogador %d x %d Maquina", jogador, maquina);
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
+
                 break;               
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         
-               
-
+      
 //#############################################################################################################################################################################
                 case 2:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A1 - %s x %s - Carta B2\n", A1cidade, B2cidade);
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A1 x Carta B2 - %s\n", A1cidade, B2cidade);
 
                 //Populacao
                 if (A1popul > B2popul) {
-                    printf("Vitoria - População: Carta A1 - %ld x %ld - Carta B2 - Derrota\n", A1popul, B2popul);
+                    printf("Vitoria - Carta A1 X Carta B2 - Derrota \t**Populacao**\n", A1popul, B2popul);
+                    jogador ++;
                 } else if (A1popul < B2popul) {
-                    printf("Derrota - População: Carta A1 - %ld x %ld - Carta B2 - Vitoria\n", A1popul, B2popul);
+                    printf("Derrota - Carta A1 X2 Carta B2 - Vitoria \t**Populacao**\n", A1popul, B2popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A1 - %ld x %ld - Carta B2 - Empate\n", A1popul, B2popul);
+                    printf("Empate - Carta A1 X2 Carta B2 - Empate \t**Populacao**\n", A1popul, B2popul);
                 }
 
                 //area
                 if (A1area > B2area) {
-                    printf("Vitoria - Área: Carta A1 - %ld x %ld - Carta B2 - Derrota\n", A1area, B2area);
+                    printf("Vitoria - Carta A1 X Carta B2 - Derrota \t**Area**\n", A1area, B2area);
+                    jogador ++;
                 } else if (A1area < B2area) {
-                    printf("Derrota - Área: Carta A1 - %ld x %ld - Carta B2 - Vitoria\n", A1area, B2area);
+                    printf("Derrota - Carta A1 X Carta B2 - Vitoria \t**Area**\n", A1area, B2area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A1 - %ld x %ld - Carta B2 - Empate\n", A1area, B2area);
+                    printf("Empate - Carta A1 X Carta B2 - Empate \t**Area**\n", A1area, B2area);
                 }
 
                 //PIB
                 if (A1pib > B2pib) {
-                    printf("Vitoria - PIB: Carta A1 - %.2f x %.2f - Carta B2 - Derrota\n", A1pib, B2pib);
+                    printf("Vitoria - Carta A1 X Carta B2 - Derrota \t**PIB**\n", A1pib, B2pib);
+                    jogador ++;
                 } else if (A1pib < B2pib) {
-                    printf("Derrota - PIB: Carta A1 - %.2f x %.2f - Carta B2 - Vitoria\n", A1pib, B2pib);
+                    printf("Derrota - Carta A1 X Carta B2 - Vitoria \t**PIB**\n", A1pib, B2pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A1 - %.2f x %.2f - Carta B2 - Empate\n", A1pib, B2pib);
+                    printf("Empate - Carta A1 X Carta B2 - Empate \t**PIB**\n", A1pib, B2pib);
                 }
 
                 //Pontos Tur
                 if (A1turist > B2turist) {
-                    printf("Vitoria - Pontos Turisticos: Carta A1 - %d x %d - Carta B2 - Derrota\n", A1turist, B2turist);
+                    printf("Vitoria - Carta A1 X Carta B2 - Derrota \t**Pontos Turisticos**\n", A1turist, B2turist);
+                    jogador ++;
                 } else if (A1turist < B2turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A1 - %d x %d - Carta B2 - Vitoria\n", A1turist, B2turist);
+                    printf("Derrota - Carta A1 X Carta B2 - Vitoria \t**Pontos Turisticos**\n", A1turist, B2turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A1 - %d x %d - Carta B2 - Empate\n", A1turist, B2turist);
+                    printf("Empate - Carta A1 X Carta B2 - Empate \t**Pontos Turisticos**\n", A1turist, B2turist);
                 }
 
                 //Dens Popul
-                if (A1dens > B2dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A1 - %.2f x %.2f - Carta B2 - Derrota\n", A1dens, B2dens);
-                } else if (A1dens < B2dens) {
-                    printf("Derrota - Densidade Populacional: Carta A1 - %.2f x %.2f - Carta B2 - Vitoria\n", A1dens, B2dens);
+                if (A1dens < B2dens) {
+                    printf("Vitoria - Carta A1 X Carta B2 - Derrota \t**Densidade Populacional**\n", A1dens, B2dens);
+                    jogador ++;
+                } else if (A1dens > B2dens) {
+                    printf("Derrota - Carta A1 X Carta B2 - Vitoria \t**Densidade Populacional**\n", A1dens, B2dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A1 - %.2f x %.2f - Carta B2\n", A1dens, B2dens);
+                    printf("Empate - Carta A1 X Carta B2 - Empate  \t**Densidade Populacional**\n", A1dens, B2dens);
                 }
 
                 //PIB Pcapita
                 if (A1pcap > B2pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A1 - %.2f x %.2f - Carta B2 - Derrota\n", A1pcap, B2pcap);
+                    printf("Vitoria - Carta A1 X Carta B2 - Derrota \t**PIB Per Capita**\n", A1pcap, B2pcap);
+                    jogador ++;
                 } else if (A1pcap < B2pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A1 - %.2f x %.2f - Carta B2 - Vitoria\n", A1pcap, B2pcap);
+                    printf("Derrota - Carta A1 X Carta B2 - Vitoria \t**PIB Per Capita**\n", A1pcap, B2pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A1 - %.2f x %.2f - Carta B2 - Empate\n", A1pcap, B2pcap);
+                    printf("Empate - Carta A1 X Carta B2 - Empate \t**PIB Per Capita**\n", A1pcap, B2pcap);
                 }
+                
+                //Super poder 
+                if (A1sup > B2sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A1 X Carta B2 - Derrota \n", A1sup, B2sup);
+                    jogador ++;
+                } else if (A1sup < B2sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A1 X Carta B2 - Vitoria \n", A1sup, B2sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A1 X Carta B2 - Empate \n", A1sup, B2sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }                        
+                
                 break;
 //#############################################################################################################################################################################
 
                 case 3:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A1 - %s x %s - Carta B3\n", A1cidade, B3cidade);
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A1 x Carta B3 - %s\n", A1cidade, B3cidade);
 
                 //Populacao
                 if (A1popul > B3popul) {
-                    printf("Vitoria - População: Carta A1 - %ld x %ld - Carta B3 - Derrota\n", A1popul, B3popul);
+                    printf("Vitoria - Carta A1 X Carta B3 - Derrota \t**Populacao**\n", A1popul, B3popul);
+                    jogador ++;
                 } else if (A1popul < B3popul) {
-                    printf("Derrota - População: Carta A1 - %ld x %ld - Carta B3 - Vitoria\n", A1popul, B3popul);
+                    printf("Derrota - Carta A1 X2 Carta B3 - Vitoria \t**Populacao**\n", A1popul, B3popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A1 - %ld x %ld - Carta B3 - Empate\n", A1popul, B3popul);
+                    printf("Empate - Carta A1 X2 Carta B3 - Empate \t**Populacao**\n", A1popul, B3popul);
                 }
 
                 //area
                 if (A1area > B3area) {
-                    printf("Vitoria - Área: Carta A1 - %ld x %ld - Carta B3 - Derrota\n", A1area, B3area);
+                    printf("Vitoria - Carta A1 X Carta B3 - Derrota \t**Area**\n", A1area, B3area);
+                    jogador ++;
                 } else if (A1area < B3area) {
-                    printf("Derrota - Área: Carta A1 - %ld x %ld - Carta B3 - Vitoria\n", A1area, B3area);
+                    printf("Derrota - Carta A1 X Carta B3 - Vitoria \t**Area**\n", A1area, B3area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A1 - %ld x %ld - Carta B3 - Empate\n", A1area, B3area);
+                    printf("Empate - Carta A1 X Carta B3 - Empate \t**Area**\n", A1area, B3area);
                 }
 
                 //PIB
                 if (A1pib > B3pib) {
-                    printf("Vitoria - PIB: Carta A1 - %.2f x %.2f - Carta B3 - Derrota\n", A1pib, B3pib);
+                    printf("Vitoria - Carta A1 X Carta B3 - Derrota \t**PIB**\n", A1pib, B3pib);
+                    jogador ++;
                 } else if (A1pib < B3pib) {
-                    printf("Derrota - PIB: Carta A1 - %.2f x %.2f - Carta B3 - Vitoria\n", A1pib, B3pib);
+                    printf("Derrota - Carta A1 X Carta B3 - Vitoria \t**PIB**\n", A1pib, B3pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A1 - %.2f x %.2f - Carta B3 - Empate\n", A1pib, B3pib);
+                    printf("Empate - Carta A1 X Carta B3 - Empate \t**PIB**\n", A1pib, B3pib);
                 }
 
                 //Pontos Tur
                 if (A1turist > B3turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A1 - %d x %d - Carta B3 - Derrota\n", A1turist, B3turist);
+                    printf("Vitoria - Carta A1 X Carta B3 - Derrota \t**Pontos Turisticos**\n", A1turist, B3turist);
+                    jogador ++;
                 } else if (A1turist < B3turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A1 - %d x %d - Carta B3 - Vitoria\n", A1turist, B3turist);
+                    printf("Derrota - Carta A1 X Carta B3 - Vitoria \t**Pontos Turisticos**\n", A1turist, B3turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A1 - %d x %d - Carta B3 - Empate\n", A1turist, B3turist);
+                    printf("Empate - Carta A1 X Carta B3 - Empate \t**Pontos Turisticos**\n", A1turist, B3turist);
                 }
 
                 //Dens Popul
-                if (A1dens > B3dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A1 - %.2f x %.2f - Carta B3 - Derrota\n", A1dens, B3dens);
-                } else if (A1dens < B3dens) {
-                    printf("Derrota - Densidade Populacional: Carta A1 - %.2f x %.2f - Carta B3 - Vitoria\n", A1dens, B3dens);
+                if (A1dens < B3dens) {
+                    printf("Vitoria - Carta A1 X Carta B3 - Derrota \t**Densidade Populacional**\n", A1dens, B3dens);
+                    jogador ++;
+                } else if (A1dens > B3dens) {
+                    printf("Derrota - Carta A1 X Carta B3 - Vitoria \t**Densidade Populacional**\n", A1dens, B3dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A1 - %.2f x %.2f - Carta B3\n", A1dens, B3dens);
+                    printf("Empate - Carta A1 X Carta B3 - Empate  \t**Densidade Populacional**\n", A1dens, B3dens);
                 }
 
                 //PIB Pcapita
                 if (A1pcap > B3pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A1 - %.2f x %.2f - Carta B3 - Derrota\n", A1pcap, B3pcap);
+                    printf("Vitoria - Carta A1 X Carta B3 - Derrota \t**PIB Per Capita**\n", A1pcap, B3pcap);
+                    jogador ++;
                 } else if (A1pcap < B3pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A1 - %.2f x %.2f - Carta B3 - Vitoria\n", A1pcap, B3pcap);
+                    printf("Derrota - Carta A1 X Carta B3 - Vitoria \t**PIB Per Capita**\n", A1pcap, B3pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A1 - %.2f x %.2f - Carta B3 - Empate\n", A1pcap, B3pcap);
+                    printf("Empate - Carta A1 X Carta B3 - Empate \t**PIB Per Capita**\n", A1pcap, B3pcap);
                 }
+                
+                //Super poder 
+                if (A1sup > B3sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A1 X Carta B3 - Derrota \n", A1sup, B3sup);
+                    jogador ++;
+                } else if (A1sup < B3sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A1 X Carta B3 - Vitoria \n", A1sup, B3sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A1 X Carta B3 - Empate \n", A1sup, B3sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
+
                 break;
-
-//#############################################################################################################################################################################
-
-                case 4:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A1 - %s x %s - Carta B4\n", A1cidade, B4cidade);
+//#############################################################################################################################################################################       
+                default:
+                                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A1 x Carta B4 - %s\n", A1cidade, B4cidade);
 
                 //Populacao
                 if (A1popul > B4popul) {
-                    printf("Vitoria - População: Carta A1 - %ld x %ld - Carta B4 - Derrota\n", A1popul, B4popul);
+                    printf("Vitoria - Carta A1 X Carta B4 - Derrota \t**Populacao**\n", A1popul, B4popul);
+                    jogador ++;
                 } else if (A1popul < B4popul) {
-                    printf("Derrota - População: Carta A1 - %ld x %ld - Carta B4 - Vitoria\n", A1popul, B4popul);
+                    printf("Derrota - Carta A1 X2 Carta B4 - Vitoria \t**Populacao**\n", A1popul, B4popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A1 - %ld x %ld - Carta B4 - Empate\n", A1popul, B4popul);
+                    printf("Empate - Carta A1 X2 Carta B4 - Empate \t**Populacao**\n", A1popul, B4popul);
                 }
 
                 //area
                 if (A1area > B4area) {
-                    printf("Vitoria - Área: Carta A1 - %ld x %ld - Carta B4 - Derrota\n", A1area, B4area);
+                    printf("Vitoria - Carta A1 X Carta B4 - Derrota \t**Area**\n", A1area, B4area);
+                    jogador ++;
                 } else if (A1area < B4area) {
-                    printf("Derrota - Área: Carta A1 - %ld x %ld - Carta B4 - Vitoria\n", A1area, B4area);
+                    printf("Derrota - Carta A1 X Carta B4 - Vitoria \t**Area**\n", A1area, B4area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A1 - %ld x %ld - Carta B4 - Empate\n", A1area, B4area);
+                    printf("Empate - Carta A1 X Carta B4 - Empate \t**Area**\n", A1area, B4area);
                 }
 
                 //PIB
                 if (A1pib > B4pib) {
-                    printf("Vitoria - PIB: Carta A1 - %.2f x %.2f - Carta B4 - Derrota\n", A1pib, B4pib);
+                    printf("Vitoria - Carta A1 X Carta B4 - Derrota \t**PIB**\n", A1pib, B4pib);
+                    jogador ++;
                 } else if (A1pib < B4pib) {
-                    printf("Derrota - PIB: Carta A1 - %.2f x %.2f - Carta B4 - Vitoria\n", A1pib, B4pib);
+                    printf("Derrota - Carta A1 X Carta B4 - Vitoria \t**PIB**\n", A1pib, B4pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A1 - %.2f x %.2f - Carta B4 - Empate\n", A1pib, B4pib);
+                    printf("Empate - Carta A1 X Carta B4 - Empate \t**PIB**\n", A1pib, B4pib);
                 }
 
-                //Pontos Turísticos
+                //Pontos Tur
                 if (A1turist > B4turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A1 - %d x %d - Carta B4 - Derrota\n", A1turist, B4turist);
+                    printf("Vitoria - Carta A1 X Carta B4 - Derrota \t**Pontos Turisticos**\n", A1turist, B4turist);
+                    jogador ++;
                 } else if (A1turist < B4turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A1 - %d x %d - Carta B4 - Vitoria\n", A1turist, B4turist);
+                    printf("Derrota - Carta A1 X Carta B4 - Vitoria \t**Pontos Turisticos**\n", A1turist, B4turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A1 - %d x %d - Carta B4 - Empate\n", A1turist, B4turist);
+                    printf("Empate - Carta A1 X Carta B4 - Empate \t**Pontos Turisticos**\n", A1turist, B4turist);
                 }
 
-                //Densidade Populacional
-                if (A1dens > B4dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A1 - %.2f x %.2f - Carta B4 - Derrota\n", A1dens, B4dens);
-                } else if (A1dens < B4dens) {
-                    printf("Derrota - Densidade Populacional: Carta A1 - %.2f x %.2f - Carta B4 - Vitoria\n", A1dens, B4dens);
+                //Dens Popul
+                if (A1dens < B4dens) {
+                    printf("Vitoria - Carta A1 X Carta B4 - Derrota \t**Densidade Populacional**\n", A1dens, B4dens);
+                    jogador ++;
+                } else if (A1dens > B4dens) {
+                    printf("Derrota - Carta A1 X Carta B4 - Vitoria \t**Densidade Populacional**\n", A1dens, B4dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A1 - %.2f x %.2f - Carta B4\n", A1dens, B4dens);
+                    printf("Empate - Carta A1 X Carta B4 - Empate  \t**Densidade Populacional**\n", A1dens, B4dens);
                 }
 
-                //PIB Per Capita
+                //PIB Pcapita
                 if (A1pcap > B4pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A1 - %.2f x %.2f - Carta B4 - Derrota\n", A1pcap, B4pcap);
+                    printf("Vitoria - Carta A1 X Carta B4 - Derrota \t**PIB Per Capita**\n", A1pcap, B4pcap);
+                    jogador ++;
                 } else if (A1pcap < B4pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A1 - %.2f x %.2f - Carta B4 - Vitoria\n", A1pcap, B4pcap);
+                    printf("Derrota - Carta A1 X Carta B4 - Vitoria \t**PIB Per Capita**\n", A1pcap, B4pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A1 - %.2f x %.2f - Carta B4 - Empate\n", A1pcap, B4pcap);
+                    printf("Empate - Carta A1 X Carta B4 - Empate \t**PIB Per Capita**\n", A1pcap, B4pcap);
                 }
-                break;
+                
+                //Super poder 
+                if (A1sup > B4sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A1 X Carta B4 - Derrota \n", A1sup, B4sup);
+                    jogador ++;
+                } else if (A1sup < B4sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A1 X Carta B4 - Vitoria \n", A1sup, B4sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A1 X Carta B4 - Empate \n", A1sup, B4sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
 
-                default:
-                    break;
+                break;
                 }
 
         break;
@@ -554,718 +655,1180 @@ int main() {
             switch (Mcarta)
             {
 //############################################################################################################################################################################# 
-            case 1:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A2 - %s x %s - Carta B1\n", A2cidade, B1cidade);
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A2 x Carta B1 - %s\n", A2cidade, B1cidade);
 
                 //Populacao
                 if (A2popul > B1popul) {
-                    printf("Vitoria - População: Carta A2 - %ld x %ld - Carta B1 - Derrota\n", A2popul, B1popul);
+                    printf("Vitoria - Carta A2 X Carta B1 - Derrota \t**Populacao**\n", A2popul, B1popul);
+                    jogador ++;
                 } else if (A2popul < B1popul) {
-                    printf("Derrota - População: Carta A2 - %ld x %ld - Carta B1 - Vitoria\n", A2popul, B1popul);
+                    printf("Derrota - Carta A2 X2 Carta B1 - Vitoria \t**Populacao**\n", A2popul, B1popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A2 - %ld x %ld - Carta B1 - Empate\n", A2popul, B1popul);
+                    printf("Empate - Carta A2 X2 Carta B1 - Empate \t**Populacao**\n", A2popul, B1popul);
                 }
 
                 //area
                 if (A2area > B1area) {
-                    printf("Vitoria - Área: Carta A2 - %ld x %ld - Carta B1 - Derrota\n", A2area, B1area);
+                    printf("Vitoria - Carta A2 X Carta B1 - Derrota \t**Area**\n", A2area, B1area);
+                    jogador ++;
                 } else if (A2area < B1area) {
-                    printf("Derrota - Área: Carta A2 - %ld x %ld - Carta B1 - Vitoria\n", A2area, B1area);
+                    printf("Derrota - Carta A2 X Carta B1 - Vitoria \t**Area**\n", A2area, B1area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A2 - %ld x %ld - Carta B1 - Empate\n", A2area, B1area);
+                    printf("Empate - Carta A2 X Carta B1 - Empate \t**Area**\n", A2area, B1area);
                 }
 
                 //PIB
                 if (A2pib > B1pib) {
-                    printf("Vitoria - PIB: Carta A2 - %.2f x %.2f - Carta B1 - Derrota\n", A2pib, B1pib);
+                    printf("Vitoria - Carta A2 X Carta B1 - Derrota \t**PIB**\n", A2pib, B1pib);
+                    jogador ++;
                 } else if (A2pib < B1pib) {
-                    printf("Derrota - PIB: Carta A2 - %.2f x %.2f - Carta B1 - Vitoria\n", A2pib, B1pib);
+                    printf("Derrota - Carta A2 X Carta B1 - Vitoria \t**PIB**\n", A2pib, B1pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A2 - %.2f x %.2f - Carta B1 - Empate\n", A2pib, B1pib);
+                    printf("Empate - Carta A2 X Carta B1 - Empate \t**PIB**\n", A2pib, B1pib);
                 }
 
                 //Pontos Tur
                 if (A2turist > B1turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A2 - %d x %d - Carta B1 - Derrota\n", A2turist, B1turist);
+                    printf("Vitoria - Carta A2 X Carta B1 - Derrota \t**Pontos Turisticos**\n", A2turist, B1turist);
+                    jogador ++;
                 } else if (A2turist < B1turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A2 - %d x %d - Carta B1 - Vitoria\n", A2turist, B1turist);
+                    printf("Derrota - Carta A2 X Carta B1 - Vitoria \t**Pontos Turisticos**\n", A2turist, B1turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A2 - %d x %d - Carta B1 - Empate\n", A2turist, B1turist);
+                    printf("Empate - Carta A2 X Carta B1 - Empate \t**Pontos Turisticos**\n", A2turist, B1turist);
                 }
 
                 //Dens Popul
-                if (A2dens > B1dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B1 - Derrota\n", A2dens, B1dens);
-                } else if (A2dens < B1dens) {
-                    printf("Derrota - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B1 - Vitoria\n", A2dens, B1dens);
+                if (A2dens < B1dens) {
+                    printf("Vitoria - Carta A2 X Carta B1 - Derrota \t**Densidade Populacional**\n", A2dens, B1dens);
+                    jogador ++;
+                } else if (A2dens > B1dens) {
+                    printf("Derrota - Carta A2 X Carta B1 - Vitoria \t**Densidade Populacional**\n", A2dens, B1dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B1\n", A2dens, B1dens);
+                    printf("Empate - Carta A2 X Carta B1 - Empate  \t**Densidade Populacional**\n", A2dens, B1dens);
                 }
 
                 //PIB Pcapita
                 if (A2pcap > B1pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B1 - Derrota\n", A2pcap, B1pcap);
+                    printf("Vitoria - Carta A2 X Carta B1 - Derrota \t**PIB Per Capita**\n", A2pcap, B1pcap);
+                    jogador ++;
                 } else if (A2pcap < B1pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B1 - Vitoria\n", A2pcap, B1pcap);
+                    printf("Derrota - Carta A2 X Carta B1 - Vitoria \t**PIB Per Capita**\n", A2pcap, B1pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B1 - Empate\n", A2pcap, B1pcap);
+                    printf("Empate - Carta A2 X Carta B1 - Empate \t**PIB Per Capita**\n", A2pcap, B1pcap);
                 }
-                break;         
-               
-               
-               
+                
+                //Super poder 
+                if (A2sup > B1sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A2 X Carta B1 - Derrota \n", A2sup, B1sup);
+                    jogador ++;
+                } else if (A2sup < B1sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A2 X Carta B1 - Vitoria \n", A2sup, B1sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A2 X Carta B1 - Empate \n", A2sup, B1sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
+
+                break;               
+      
+//#############################################################################################################################################################################
                 case 2:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A2 - %s x %s - Carta B2\n", A2cidade, B2cidade);
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A2 x Carta B2 - %s\n", A2cidade, B2cidade);
 
                 //Populacao
                 if (A2popul > B2popul) {
-                    printf("Vitoria - População: Carta A2 - %ld x %ld - Carta B2 - Derrota\n", A2popul, B2popul);
+                    printf("Vitoria - Carta A2 X Carta B2 - Derrota \t**Populacao**\n", A2popul, B2popul);
+                    jogador ++;
                 } else if (A2popul < B2popul) {
-                    printf("Derrota - População: Carta A2 - %ld x %ld - Carta B2 - Vitoria\n", A2popul, B2popul);
+                    printf("Derrota - Carta A2 X2 Carta B2 - Vitoria \t**Populacao**\n", A2popul, B2popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A2 - %ld x %ld - Carta B2 - Empate\n", A2popul, B2popul);
+                    printf("Empate - Carta A2 X2 Carta B2 - Empate \t**Populacao**\n", A2popul, B2popul);
                 }
 
                 //area
                 if (A2area > B2area) {
-                    printf("Vitoria - Área: Carta A2 - %ld x %ld - Carta B2 - Derrota\n", A2area, B2area);
+                    printf("Vitoria - Carta A2 X Carta B2 - Derrota \t**Area**\n", A2area, B2area);
+                    jogador ++;
                 } else if (A2area < B2area) {
-                    printf("Derrota - Área: Carta A2 - %ld x %ld - Carta B2 - Vitoria\n", A2area, B2area);
+                    printf("Derrota - Carta A2 X Carta B2 - Vitoria \t**Area**\n", A2area, B2area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A2 - %ld x %ld - Carta B2 - Empate\n", A2area, B2area);
+                    printf("Empate - Carta A2 X Carta B2 - Empate \t**Area**\n", A2area, B2area);
                 }
 
                 //PIB
                 if (A2pib > B2pib) {
-                    printf("Vitoria - PIB: Carta A2 - %.2f x %.2f - Carta B2 - Derrota\n", A2pib, B2pib);
+                    printf("Vitoria - Carta A2 X Carta B2 - Derrota \t**PIB**\n", A2pib, B2pib);
+                    jogador ++;
                 } else if (A2pib < B2pib) {
-                    printf("Derrota - PIB: Carta A2 - %.2f x %.2f - Carta B2 - Vitoria\n", A2pib, B2pib);
+                    printf("Derrota - Carta A2 X Carta B2 - Vitoria \t**PIB**\n", A2pib, B2pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A2 - %.2f x %.2f - Carta B2 - Empate\n", A2pib, B2pib);
+                    printf("Empate - Carta A2 X Carta B2 - Empate \t**PIB**\n", A2pib, B2pib);
                 }
 
                 //Pontos Tur
                 if (A2turist > B2turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A2 - %d x %d - Carta B2 - Derrota\n", A2turist, B2turist);
+                    printf("Vitoria - Carta A2 X Carta B2 - Derrota \t**Pontos Turisticos**\n", A2turist, B2turist);
+                    jogador ++;
                 } else if (A2turist < B2turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A2 - %d x %d - Carta B2 - Vitoria\n", A2turist, B2turist);
+                    printf("Derrota - Carta A2 X Carta B2 - Vitoria \t**Pontos Turisticos**\n", A2turist, B2turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A2 - %d x %d - Carta B2 - Empate\n", A2turist, B2turist);
+                    printf("Empate - Carta A2 X Carta B2 - Empate \t**Pontos Turisticos**\n", A2turist, B2turist);
                 }
 
                 //Dens Popul
-                if (A2dens > B2dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B2 - Derrota\n", A2dens, B2dens);
-                } else if (A2dens < B2dens) {
-                    printf("Derrota - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B2 - Vitoria\n", A2dens, B2dens);
+                if (A2dens < B2dens) {
+                    printf("Vitoria - Carta A2 X Carta B2 - Derrota \t**Densidade Populacional**\n", A2dens, B2dens);
+                    jogador ++;
+                } else if (A2dens > B2dens) {
+                    printf("Derrota - Carta A2 X Carta B2 - Vitoria \t**Densidade Populacional**\n", A2dens, B2dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B2\n", A2dens, B2dens);
+                    printf("Empate - Carta A2 X Carta B2 - Empate  \t**Densidade Populacional**\n", A2dens, B2dens);
                 }
 
                 //PIB Pcapita
                 if (A2pcap > B2pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B2 - Derrota\n", A2pcap, B2pcap);
+                    printf("Vitoria - Carta A2 X Carta B2 - Derrota \t**PIB Per Capita**\n", A2pcap, B2pcap);
+                    jogador ++;
                 } else if (A2pcap < B2pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B2 - Vitoria\n", A2pcap, B2pcap);
+                    printf("Derrota - Carta A2 X Carta B2 - Vitoria \t**PIB Per Capita**\n", A2pcap, B2pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B2 - Empate\n", A2pcap, B2pcap);
+                    printf("Empate - Carta A2 X Carta B2 - Empate \t**PIB Per Capita**\n", A2pcap, B2pcap);
                 }
+                
+                //Super poder 
+                if (A2sup > B2sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A2 X Carta B2 - Derrota \n", A2sup, B2sup);
+                    jogador ++;
+                } else if (A2sup < B2sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A2 X Carta B2 - Vitoria \n", A2sup, B2sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A2 X Carta B2 - Empate \n", A2sup, B2sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }                        
+                
                 break;
-
+//#############################################################################################################################################################################       
 
                 case 3:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A2 - %s x %s - Carta B3\n", A2cidade, B3cidade);
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A2 x Carta B3 - %s\n", A2cidade, B3cidade);
 
                 //Populacao
                 if (A2popul > B3popul) {
-                    printf("Vitoria - População: Carta A2 - %ld x %ld - Carta B3 - Derrota\n", A2popul, B3popul);
+                    printf("Vitoria - Carta A2 X Carta B3 - Derrota \t**Populacao**\n", A2popul, B3popul);
+                    jogador ++;
                 } else if (A2popul < B3popul) {
-                    printf("Derrota - População: Carta A2 - %ld x %ld - Carta B3 - Vitoria\n", A2popul, B3popul);
+                    printf("Derrota - Carta A2 X2 Carta B3 - Vitoria \t**Populacao**\n", A2popul, B3popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A2 - %ld x %ld - Carta B3 - Empate\n", A2popul, B3popul);
+                    printf("Empate - Carta A2 X2 Carta B3 - Empate \t**Populacao**\n", A2popul, B3popul);
                 }
 
                 //area
                 if (A2area > B3area) {
-                    printf("Vitoria - Área: Carta A2 - %ld x %ld - Carta B3 - Derrota\n", A2area, B3area);
+                    printf("Vitoria - Carta A2 X Carta B3 - Derrota \t**Area**\n", A2area, B3area);
+                    jogador ++;
                 } else if (A2area < B3area) {
-                    printf("Derrota - Área: Carta A2 - %ld x %ld - Carta B3 - Vitoria\n", A2area, B3area);
+                    printf("Derrota - Carta A2 X Carta B3 - Vitoria \t**Area**\n", A2area, B3area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A2 - %ld x %ld - Carta B3 - Empate\n", A2area, B3area);
+                    printf("Empate - Carta A2 X Carta B3 - Empate \t**Area**\n", A2area, B3area);
                 }
 
                 //PIB
                 if (A2pib > B3pib) {
-                    printf("Vitoria - PIB: Carta A2 - %.2f x %.2f - Carta B3 - Derrota\n", A2pib, B3pib);
+                    printf("Vitoria - Carta A2 X Carta B3 - Derrota \t**PIB**\n", A2pib, B3pib);
+                    jogador ++;
                 } else if (A2pib < B3pib) {
-                    printf("Derrota - PIB: Carta A2 - %.2f x %.2f - Carta B3 - Vitoria\n", A2pib, B3pib);
+                    printf("Derrota - Carta A2 X Carta B3 - Vitoria \t**PIB**\n", A2pib, B3pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A2 - %.2f x %.2f - Carta B3 - Empate\n", A2pib, B3pib);
+                    printf("Empate - Carta A2 X Carta B3 - Empate \t**PIB**\n", A2pib, B3pib);
                 }
 
                 //Pontos Tur
                 if (A2turist > B3turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A2 - %d x %d - Carta B3 - Derrota\n", A2turist, B3turist);
+                    printf("Vitoria - Carta A2 X Carta B3 - Derrota \t**Pontos Turisticos**\n", A2turist, B3turist);
+                    jogador ++;
                 } else if (A2turist < B3turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A2 - %d x %d - Carta B3 - Vitoria\n", A2turist, B3turist);
+                    printf("Derrota - Carta A2 X Carta B3 - Vitoria \t**Pontos Turisticos**\n", A2turist, B3turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A2 - %d x %d - Carta B3 - Empate\n", A2turist, B3turist);
+                    printf("Empate - Carta A2 X Carta B3 - Empate \t**Pontos Turisticos**\n", A2turist, B3turist);
                 }
 
                 //Dens Popul
-                if (A2dens > B3dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B3 - Derrota\n", A2dens, B3dens);
-                } else if (A2dens < B3dens) {
-                    printf("Derrota - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B3 - Vitoria\n", A2dens, B3dens);
+                if (A2dens < B3dens) {
+                    printf("Vitoria - Carta A2 X Carta B3 - Derrota \t**Densidade Populacional**\n", A2dens, B3dens);
+                    jogador ++;
+                } else if (A2dens > B3dens) {
+                    printf("Derrota - Carta A2 X Carta B3 - Vitoria \t**Densidade Populacional**\n", A2dens, B3dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B3\n", A2dens, B3dens);
+                    printf("Empate - Carta A2 X Carta B3 - Empate  \t**Densidade Populacional**\n", A2dens, B3dens);
                 }
 
                 //PIB Pcapita
                 if (A2pcap > B3pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B3 - Derrota\n", A2pcap, B3pcap);
+                    printf("Vitoria - Carta A2 X Carta B3 - Derrota \t**PIB Per Capita**\n", A2pcap, B3pcap);
+                    jogador ++;
                 } else if (A2pcap < B3pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B3 - Vitoria\n", A2pcap, B3pcap);
+                    printf("Derrota - Carta A2 X Carta B3 - Vitoria \t**PIB Per Capita**\n", A2pcap, B3pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B3 - Empate\n", A2pcap, B3pcap);
+                    printf("Empate - Carta A2 X Carta B3 - Empate \t**PIB Per Capita**\n", A2pcap, B3pcap);
                 }
+                
+                //Super poder 
+                if (A2sup > B3sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A2 X Carta B3 - Derrota \n", A2sup, B3sup);
+                    jogador ++;
+                } else if (A2sup < B3sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A2 X Carta B3 - Vitoria \n", A2sup, B3sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A2 X Carta B3 - Empate \n", A2sup, B3sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
+
                 break;
-
-
-
-                case 4:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A2 - %s x %s - Carta B4\n", A2cidade, B4cidade);
+//#############################################################################################################################################################################       
+                default:
+                                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A2 x Carta B4 - %s\n", A2cidade, B4cidade);
 
                 //Populacao
                 if (A2popul > B4popul) {
-                    printf("Vitoria - População: Carta A2 - %ld x %ld - Carta B4 - Derrota\n", A2popul, B4popul);
+                    printf("Vitoria - Carta A2 X Carta B4 - Derrota \t**Populacao**\n", A2popul, B4popul);
+                    jogador ++;
                 } else if (A2popul < B4popul) {
-                    printf("Derrota - População: Carta A2 - %ld x %ld - Carta B4 - Vitoria\n", A2popul, B4popul);
+                    printf("Derrota - Carta A2 X2 Carta B4 - Vitoria \t**Populacao**\n", A2popul, B4popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A2 - %ld x %ld - Carta B4 - Empate\n", A2popul, B4popul);
+                    printf("Empate - Carta A2 X2 Carta B4 - Empate \t**Populacao**\n", A2popul, B4popul);
                 }
 
                 //area
                 if (A2area > B4area) {
-                    printf("Vitoria - Área: Carta A2 - %ld x %ld - Carta B4 - Derrota\n", A2area, B4area);
+                    printf("Vitoria - Carta A2 X Carta B4 - Derrota \t**Area**\n", A2area, B4area);
+                    jogador ++;
                 } else if (A2area < B4area) {
-                    printf("Derrota - Área: Carta A2 - %ld x %ld - Carta B4 - Vitoria\n", A2area, B4area);
+                    printf("Derrota - Carta A2 X Carta B4 - Vitoria \t**Area**\n", A2area, B4area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A2 - %ld x %ld - Carta B4 - Empate\n", A2area, B4area);
+                    printf("Empate - Carta A2 X Carta B4 - Empate \t**Area**\n", A2area, B4area);
                 }
 
                 //PIB
                 if (A2pib > B4pib) {
-                    printf("Vitoria - PIB: Carta A2 - %.2f x %.2f - Carta B4 - Derrota\n", A2pib, B4pib);
+                    printf("Vitoria - Carta A2 X Carta B4 - Derrota \t**PIB**\n", A2pib, B4pib);
+                    jogador ++;
                 } else if (A2pib < B4pib) {
-                    printf("Derrota - PIB: Carta A2 - %.2f x %.2f - Carta B4 - Vitoria\n", A2pib, B4pib);
+                    printf("Derrota - Carta A2 X Carta B4 - Vitoria \t**PIB**\n", A2pib, B4pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A2 - %.2f x %.2f - Carta B4 - Empate\n", A2pib, B4pib);
+                    printf("Empate - Carta A2 X Carta B4 - Empate \t**PIB**\n", A2pib, B4pib);
                 }
 
-                //Pontos Turísticos
+                //Pontos Tur
                 if (A2turist > B4turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A2 - %d x %d - Carta B4 - Derrota\n", A2turist, B4turist);
+                    printf("Vitoria - Carta A2 X Carta B4 - Derrota \t**Pontos Turisticos**\n", A2turist, B4turist);
+                    jogador ++;
                 } else if (A2turist < B4turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A2 - %d x %d - Carta B4 - Vitoria\n", A2turist, B4turist);
+                    printf("Derrota - Carta A2 X Carta B4 - Vitoria \t**Pontos Turisticos**\n", A2turist, B4turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A2 - %d x %d - Carta B4 - Empate\n", A2turist, B4turist);
+                    printf("Empate - Carta A2 X Carta B4 - Empate \t**Pontos Turisticos**\n", A2turist, B4turist);
                 }
 
-                //Densidade Populacional
-                if (A2dens > B4dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B4 - Derrota\n", A2dens, B4dens);
-                } else if (A2dens < B4dens) {
-                    printf("Derrota - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B4 - Vitoria\n", A2dens, B4dens);
+                //Dens Popul
+                if (A2dens < B4dens) {
+                    printf("Vitoria - Carta A2 X Carta B4 - Derrota \t**Densidade Populacional**\n", A2dens, B4dens);
+                    jogador ++;
+                } else if (A2dens > B4dens) {
+                    printf("Derrota - Carta A2 X Carta B4 - Vitoria \t**Densidade Populacional**\n", A2dens, B4dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A2 - %.2f x %.2f - Carta B4\n", A2dens, B4dens);
+                    printf("Empate - Carta A2 X Carta B4 - Empate  \t**Densidade Populacional**\n", A2dens, B4dens);
                 }
 
-                //PIB Per Capita
+                //PIB Pcapita
                 if (A2pcap > B4pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B4 - Derrota\n", A2pcap, B4pcap);
+                    printf("Vitoria - Carta A2 X Carta B4 - Derrota \t**PIB Per Capita**\n", A2pcap, B4pcap);
+                    jogador ++;
                 } else if (A2pcap < B4pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B4 - Vitoria\n", A2pcap, B4pcap);
+                    printf("Derrota - Carta A2 X Carta B4 - Vitoria \t**PIB Per Capita**\n", A2pcap, B4pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A2 - %.2f x %.2f - Carta B4 - Empate\n", A2pcap, B4pcap);
+                    printf("Empate - Carta A2 X Carta B4 - Empate \t**PIB Per Capita**\n", A2pcap, B4pcap);
                 }
-                break;
+                
+                //Super poder 
+                if (A2sup > B4sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A2 X Carta B4 - Derrota \n", A2sup, B4sup);
+                    jogador ++;
+                } else if (A2sup < B4sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A2 X Carta B4 - Vitoria \n", A2sup, B4sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A2 X Carta B4 - Empate \n", A2sup, B4sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
 
-                default:
-                    break;
+                break;
                 }
-            break;
-        
-        
-        
-        
-        case 3:
-            switch (Mcarta)
-            {
-            case 1:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A3 - %s x %s - Carta B1\n", A3cidade, B1cidade);
+//#############################################################################################################################################################################
+
+                case 3:
+                switch (Mcarta)
+                {
+//#############################################################################################################################################################################         
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A3 x Carta B1 - %s\n", A3cidade, B1cidade);
 
                 //Populacao
                 if (A3popul > B1popul) {
-                    printf("Vitoria - População: Carta A3 - %ld x %ld - Carta B1 - Derrota\n", A3popul, B1popul);
+                    printf("Vitoria - Carta A3 X Carta B1 - Derrota \t**Populacao**\n", A3popul, B1popul);
+                    jogador ++;
                 } else if (A3popul < B1popul) {
-                    printf("Derrota - População: Carta A3 - %ld x %ld - Carta B1 - Vitoria\n", A3popul, B1popul);
+                    printf("Derrota - Carta A3 X2 Carta B1 - Vitoria \t**Populacao**\n", A3popul, B1popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A3 - %ld x %ld - Carta B1 - Empate\n", A3popul, B1popul);
+                    printf("Empate - Carta A3 X2 Carta B1 - Empate \t**Populacao**\n", A3popul, B1popul);
                 }
 
                 //area
                 if (A3area > B1area) {
-                    printf("Vitoria - Área: Carta A3 - %ld x %ld - Carta B1 - Derrota\n", A3area, B1area);
+                    printf("Vitoria - Carta A3 X Carta B1 - Derrota \t**Area**\n", A3area, B1area);
+                    jogador ++;
                 } else if (A3area < B1area) {
-                    printf("Derrota - Área: Carta A3 - %ld x %ld - Carta B1 - Vitoria\n", A3area, B1area);
+                    printf("Derrota - Carta A3 X Carta B1 - Vitoria \t**Area**\n", A3area, B1area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A3 - %ld x %ld - Carta B1 - Empate\n", A3area, B1area);
+                    printf("Empate - Carta A3 X Carta B1 - Empate \t**Area**\n", A3area, B1area);
                 }
 
                 //PIB
                 if (A3pib > B1pib) {
-                    printf("Vitoria - PIB: Carta A3 - %.2f x %.2f - Carta B1 - Derrota\n", A3pib, B1pib);
+                    printf("Vitoria - Carta A3 X Carta B1 - Derrota \t**PIB**\n", A3pib, B1pib);
+                    jogador ++;
                 } else if (A3pib < B1pib) {
-                    printf("Derrota - PIB: Carta A3 - %.2f x %.2f - Carta B1 - Vitoria\n", A3pib, B1pib);
+                    printf("Derrota - Carta A3 X Carta B1 - Vitoria \t**PIB**\n", A3pib, B1pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A3 - %.2f x %.2f - Carta B1 - Empate\n", A3pib, B1pib);
+                    printf("Empate - Carta A3 X Carta B1 - Empate \t**PIB**\n", A3pib, B1pib);
                 }
 
                 //Pontos Tur
                 if (A3turist > B1turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A3 - %d x %d - Carta B1 - Derrota\n", A3turist, B1turist);
+                    printf("Vitoria - Carta A3 X Carta B1 - Derrota \t**Pontos Turisticos**\n", A3turist, B1turist);
+                    jogador ++;
                 } else if (A3turist < B1turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A3 - %d x %d - Carta B1 - Vitoria\n", A3turist, B1turist);
+                    printf("Derrota - Carta A3 X Carta B1 - Vitoria \t**Pontos Turisticos**\n", A3turist, B1turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A3 - %d x %d - Carta B1 - Empate\n", A3turist, B1turist);
+                    printf("Empate - Carta A3 X Carta B1 - Empate \t**Pontos Turisticos**\n", A3turist, B1turist);
                 }
 
                 //Dens Popul
-                if (A3dens > B1dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B1 - Derrota\n", A3dens, B1dens);
-                } else if (A3dens < B1dens) {
-                    printf("Derrota - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B1 - Vitoria\n", A3dens, B1dens);
+                if (A3dens < B1dens) {
+                    printf("Vitoria - Carta A3 X Carta B1 - Derrota \t**Densidade Populacional**\n", A3dens, B1dens);
+                    jogador ++;
+                } else if (A3dens > B1dens) {
+                    printf("Derrota - Carta A3 X Carta B1 - Vitoria \t**Densidade Populacional**\n", A3dens, B1dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B1\n", A3dens, B1dens);
+                    printf("Empate - Carta A3 X Carta B1 - Empate  \t**Densidade Populacional**\n", A3dens, B1dens);
                 }
 
                 //PIB Pcapita
                 if (A3pcap > B1pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B1 - Derrota\n", A3pcap, B1pcap);
+                    printf("Vitoria - Carta A3 X Carta B1 - Derrota \t**PIB Per Capita**\n", A3pcap, B1pcap);
+                    jogador ++;
                 } else if (A3pcap < B1pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B1 - Vitoria\n", A3pcap, B1pcap);
+                    printf("Derrota - Carta A3 X Carta B1 - Vitoria \t**PIB Per Capita**\n", A3pcap, B1pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B1 - Empate\n", A3pcap, B1pcap);
+                    printf("Empate - Carta A3 X Carta B1 - Empate \t**PIB Per Capita**\n", A3pcap, B1pcap);
                 }
-                break;         
-               
-               
-               
+                
+                //Super poder 
+                if (A3sup > B1sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A3 X Carta B1 - Derrota \n", A3sup, B1sup);
+                    jogador ++;
+                } else if (A3sup < B1sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A3 X Carta B1 - Vitoria \n", A3sup, B1sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A3 X Carta B1 - Empate \n", A3sup, B1sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
+
+                break;               
+      
+//#############################################################################################################################################################################
                 case 2:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A3 - %s x %s - Carta B2\n", A3cidade, B2cidade);
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A3 x Carta B2 - %s\n", A3cidade, B2cidade);
 
                 //Populacao
                 if (A3popul > B2popul) {
-                    printf("Vitoria - População: Carta A3 - %ld x %ld - Carta B2 - Derrota\n", A3popul, B2popul);
+                    printf("Vitoria - Carta A3 X Carta B2 - Derrota \t**Populacao**\n", A3popul, B2popul);
+                    jogador ++;
                 } else if (A3popul < B2popul) {
-                    printf("Derrota - População: Carta A3 - %ld x %ld - Carta B2 - Vitoria\n", A3popul, B2popul);
+                    printf("Derrota - Carta A3 X2 Carta B2 - Vitoria \t**Populacao**\n", A3popul, B2popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A3 - %ld x %ld - Carta B2 - Empate\n", A3popul, B2popul);
+                    printf("Empate - Carta A3 X2 Carta B2 - Empate \t**Populacao**\n", A3popul, B2popul);
                 }
 
                 //area
                 if (A3area > B2area) {
-                    printf("Vitoria - Área: Carta A3 - %ld x %ld - Carta B2 - Derrota\n", A3area, B2area);
+                    printf("Vitoria - Carta A3 X Carta B2 - Derrota \t**Area**\n", A3area, B2area);
+                    jogador ++;
                 } else if (A3area < B2area) {
-                    printf("Derrota - Área: Carta A3 - %ld x %ld - Carta B2 - Vitoria\n", A3area, B2area);
+                    printf("Derrota - Carta A3 X Carta B2 - Vitoria \t**Area**\n", A3area, B2area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A3 - %ld x %ld - Carta B2 - Empate\n", A3area, B2area);
+                    printf("Empate - Carta A3 X Carta B2 - Empate \t**Area**\n", A3area, B2area);
                 }
 
                 //PIB
                 if (A3pib > B2pib) {
-                    printf("Vitoria - PIB: Carta A3 - %.2f x %.2f - Carta B2 - Derrota\n", A3pib, B2pib);
+                    printf("Vitoria - Carta A3 X Carta B2 - Derrota \t**PIB**\n", A3pib, B2pib);
+                    jogador ++;
                 } else if (A3pib < B2pib) {
-                    printf("Derrota - PIB: Carta A3 - %.2f x %.2f - Carta B2 - Vitoria\n", A3pib, B2pib);
+                    printf("Derrota - Carta A3 X Carta B2 - Vitoria \t**PIB**\n", A3pib, B2pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A3 - %.2f x %.2f - Carta B2 - Empate\n", A3pib, B2pib);
+                    printf("Empate - Carta A3 X Carta B2 - Empate \t**PIB**\n", A3pib, B2pib);
                 }
 
                 //Pontos Tur
                 if (A3turist > B2turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A3 - %d x %d - Carta B2 - Derrota\n", A3turist, B2turist);
+                    printf("Vitoria - Carta A3 X Carta B2 - Derrota \t**Pontos Turisticos**\n", A3turist, B2turist);
+                    jogador ++;
                 } else if (A3turist < B2turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A3 - %d x %d - Carta B2 - Vitoria\n", A3turist, B2turist);
+                    printf("Derrota - Carta A3 X Carta B2 - Vitoria \t**Pontos Turisticos**\n", A3turist, B2turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A3 - %d x %d - Carta B2 - Empate\n", A3turist, B2turist);
+                    printf("Empate - Carta A3 X Carta B2 - Empate \t**Pontos Turisticos**\n", A3turist, B2turist);
                 }
 
                 //Dens Popul
-                if (A3dens > B2dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B2 - Derrota\n", A3dens, B2dens);
-                } else if (A3dens < B2dens) {
-                    printf("Derrota - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B2 - Vitoria\n", A3dens, B2dens);
+                if (A3dens < B2dens) {
+                    printf("Vitoria - Carta A3 X Carta B2 - Derrota \t**Densidade Populacional**\n", A3dens, B2dens);
+                    jogador ++;
+                } else if (A3dens > B2dens) {
+                    printf("Derrota - Carta A3 X Carta B2 - Vitoria \t**Densidade Populacional**\n", A3dens, B2dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B2\n", A3dens, B2dens);
+                    printf("Empate - Carta A3 X Carta B2 - Empate  \t**Densidade Populacional**\n", A3dens, B2dens);
                 }
 
                 //PIB Pcapita
                 if (A3pcap > B2pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B2 - Derrota\n", A3pcap, B2pcap);
+                    printf("Vitoria - Carta A3 X Carta B2 - Derrota \t**PIB Per Capita**\n", A3pcap, B2pcap);
+                    jogador ++;
                 } else if (A3pcap < B2pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B2 - Vitoria\n", A3pcap, B2pcap);
+                    printf("Derrota - Carta A3 X Carta B2 - Vitoria \t**PIB Per Capita**\n", A3pcap, B2pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B2 - Empate\n", A3pcap, B2pcap);
+                    printf("Empate - Carta A3 X Carta B2 - Empate \t**PIB Per Capita**\n", A3pcap, B2pcap);
                 }
+                
+                //Super poder 
+                if (A3sup > B2sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A3 X Carta B2 - Derrota \n", A3sup, B2sup);
+                    jogador ++;
+                } else if (A3sup < B2sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A3 X Carta B2 - Vitoria \n", A3sup, B2sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A3 X Carta B2 - Empate \n", A3sup, B2sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }                        
+                
                 break;
-
+//#############################################################################################################################################################################
 
                 case 3:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A3 - %s x %s - Carta B3\n", A3cidade, B3cidade);
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A3 x Carta B3 - %s\n", A3cidade, B3cidade);
 
                 //Populacao
                 if (A3popul > B3popul) {
-                    printf("Vitoria - População: Carta A3 - %ld x %ld - Carta B3 - Derrota\n", A3popul, B3popul);
+                    printf("Vitoria - Carta A3 X Carta B3 - Derrota \t**Populacao**\n", A3popul, B3popul);
+                    jogador ++;
                 } else if (A3popul < B3popul) {
-                    printf("Derrota - População: Carta A3 - %ld x %ld - Carta B3 - Vitoria\n", A3popul, B3popul);
+                    printf("Derrota - Carta A3 X2 Carta B3 - Vitoria \t**Populacao**\n", A3popul, B3popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A3 - %ld x %ld - Carta B3 - Empate\n", A3popul, B3popul);
+                    printf("Empate - Carta A3 X2 Carta B3 - Empate \t**Populacao**\n", A3popul, B3popul);
                 }
 
                 //area
                 if (A3area > B3area) {
-                    printf("Vitoria - Área: Carta A3 - %ld x %ld - Carta B3 - Derrota\n", A3area, B3area);
+                    printf("Vitoria - Carta A3 X Carta B3 - Derrota \t**Area**\n", A3area, B3area);
+                    jogador ++;
                 } else if (A3area < B3area) {
-                    printf("Derrota - Área: Carta A3 - %ld x %ld - Carta B3 - Vitoria\n", A3area, B3area);
+                    printf("Derrota - Carta A3 X Carta B3 - Vitoria \t**Area**\n", A3area, B3area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A3 - %ld x %ld - Carta B3 - Empate\n", A3area, B3area);
+                    printf("Empate - Carta A3 X Carta B3 - Empate \t**Area**\n", A3area, B3area);
                 }
 
                 //PIB
                 if (A3pib > B3pib) {
-                    printf("Vitoria - PIB: Carta A3 - %.2f x %.2f - Carta B3 - Derrota\n", A3pib, B3pib);
+                    printf("Vitoria - Carta A3 X Carta B3 - Derrota \t**PIB**\n", A3pib, B3pib);
+                    jogador ++;
                 } else if (A3pib < B3pib) {
-                    printf("Derrota - PIB: Carta A3 - %.2f x %.2f - Carta B3 - Vitoria\n", A3pib, B3pib);
+                    printf("Derrota - Carta A3 X Carta B3 - Vitoria \t**PIB**\n", A3pib, B3pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A3 - %.2f x %.2f - Carta B3 - Empate\n", A3pib, B3pib);
+                    printf("Empate - Carta A3 X Carta B3 - Empate \t**PIB**\n", A3pib, B3pib);
                 }
 
                 //Pontos Tur
                 if (A3turist > B3turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A3 - %d x %d - Carta B3 - Derrota\n", A3turist, B3turist);
+                    printf("Vitoria - Carta A3 X Carta B3 - Derrota \t**Pontos Turisticos**\n", A3turist, B3turist);
+                    jogador ++;
                 } else if (A3turist < B3turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A3 - %d x %d - Carta B3 - Vitoria\n", A3turist, B3turist);
+                    printf("Derrota - Carta A3 X Carta B3 - Vitoria \t**Pontos Turisticos**\n", A3turist, B3turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A3 - %d x %d - Carta B3 - Empate\n", A3turist, B3turist);
+                    printf("Empate - Carta A3 X Carta B3 - Empate \t**Pontos Turisticos**\n", A3turist, B3turist);
                 }
 
                 //Dens Popul
-                if (A3dens > B3dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B3 - Derrota\n", A3dens, B3dens);
-                } else if (A3dens < B3dens) {
-                    printf("Derrota - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B3 - Vitoria\n", A3dens, B3dens);
+                if (A3dens < B3dens) {
+                    printf("Vitoria - Carta A3 X Carta B3 - Derrota \t**Densidade Populacional**\n", A3dens, B3dens);
+                    jogador ++;
+                } else if (A3dens > B3dens) {
+                    printf("Derrota - Carta A3 X Carta B3 - Vitoria \t**Densidade Populacional**\n", A3dens, B3dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B3\n", A3dens, B3dens);
+                    printf("Empate - Carta A3 X Carta B3 - Empate  \t**Densidade Populacional**\n", A3dens, B3dens);
                 }
 
                 //PIB Pcapita
                 if (A3pcap > B3pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B3 - Derrota\n", A3pcap, B3pcap);
+                    printf("Vitoria - Carta A3 X Carta B3 - Derrota \t**PIB Per Capita**\n", A3pcap, B3pcap);
+                    jogador ++;
                 } else if (A3pcap < B3pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B3 - Vitoria\n", A3pcap, B3pcap);
+                    printf("Derrota - Carta A3 X Carta B3 - Vitoria \t**PIB Per Capita**\n", A3pcap, B3pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B3 - Empate\n", A3pcap, B3pcap);
+                    printf("Empate - Carta A3 X Carta B3 - Empate \t**PIB Per Capita**\n", A3pcap, B3pcap);
                 }
+                
+                //Super poder 
+                if (A3sup > B3sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A3 X Carta B3 - Derrota \n", A3sup, B3sup);
+                    jogador ++;
+                } else if (A3sup < B3sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A3 X Carta B3 - Vitoria \n", A3sup, B3sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A3 X Carta B3 - Empate \n", A3sup, B3sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
+
                 break;
-
-
-
-                case 4:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A3 - %s x %s - Carta B4\n", A3cidade, B4cidade);
+//#############################################################################################################################################################################       
+                default:
+                                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A3 x Carta B4 - %s\n", A3cidade, B4cidade);
 
                 //Populacao
                 if (A3popul > B4popul) {
-                    printf("Vitoria - População: Carta A3 - %ld x %ld - Carta B4 - Derrota\n", A3popul, B4popul);
+                    printf("Vitoria - Carta A3 X Carta B4 - Derrota \t**Populacao**\n", A3popul, B4popul);
+                    jogador ++;
                 } else if (A3popul < B4popul) {
-                    printf("Derrota - População: Carta A3 - %ld x %ld - Carta B4 - Vitoria\n", A3popul, B4popul);
+                    printf("Derrota - Carta A3 X2 Carta B4 - Vitoria \t**Populacao**\n", A3popul, B4popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A3 - %ld x %ld - Carta B4 - Empate\n", A3popul, B4popul);
+                    printf("Empate - Carta A3 X2 Carta B4 - Empate \t**Populacao**\n", A3popul, B4popul);
                 }
 
                 //area
                 if (A3area > B4area) {
-                    printf("Vitoria - Área: Carta A3 - %ld x %ld - Carta B4 - Derrota\n", A3area, B4area);
+                    printf("Vitoria - Carta A3 X Carta B4 - Derrota \t**Area**\n", A3area, B4area);
+                    jogador ++;
                 } else if (A3area < B4area) {
-                    printf("Derrota - Área: Carta A3 - %ld x %ld - Carta B4 - Vitoria\n", A3area, B4area);
+                    printf("Derrota - Carta A3 X Carta B4 - Vitoria \t**Area**\n", A3area, B4area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A3 - %ld x %ld - Carta B4 - Empate\n", A3area, B4area);
+                    printf("Empate - Carta A3 X Carta B4 - Empate \t**Area**\n", A3area, B4area);
                 }
 
                 //PIB
                 if (A3pib > B4pib) {
-                    printf("Vitoria - PIB: Carta A3 - %.2f x %.2f - Carta B4 - Derrota\n", A3pib, B4pib);
+                    printf("Vitoria - Carta A3 X Carta B4 - Derrota \t**PIB**\n", A3pib, B4pib);
+                    jogador ++;
                 } else if (A3pib < B4pib) {
-                    printf("Derrota - PIB: Carta A3 - %.2f x %.2f - Carta B4 - Vitoria\n", A3pib, B4pib);
+                    printf("Derrota - Carta A3 X Carta B4 - Vitoria \t**PIB**\n", A3pib, B4pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A3 - %.2f x %.2f - Carta B4 - Empate\n", A3pib, B4pib);
+                    printf("Empate - Carta A3 X Carta B4 - Empate \t**PIB**\n", A3pib, B4pib);
                 }
 
-                //Pontos Turísticos
+                //Pontos Tur
                 if (A3turist > B4turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A3 - %d x %d - Carta B4 - Derrota\n", A3turist, B4turist);
+                    printf("Vitoria - Carta A3 X Carta B4 - Derrota \t**Pontos Turisticos**\n", A3turist, B4turist);
+                    jogador ++;
                 } else if (A3turist < B4turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A3 - %d x %d - Carta B4 - Vitoria\n", A3turist, B4turist);
+                    printf("Derrota - Carta A3 X Carta B4 - Vitoria \t**Pontos Turisticos**\n", A3turist, B4turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A3 - %d x %d - Carta B4 - Empate\n", A3turist, B4turist);
+                    printf("Empate - Carta A3 X Carta B4 - Empate \t**Pontos Turisticos**\n", A3turist, B4turist);
                 }
 
-                //Densidade Populacional
-                if (A3dens > B4dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B4 - Derrota\n", A3dens, B4dens);
-                } else if (A3dens < B4dens) {
-                    printf("Derrota - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B4 - Vitoria\n", A3dens, B4dens);
+                //Dens Popul
+                if (A3dens < B4dens) {
+                    printf("Vitoria - Carta A3 X Carta B4 - Derrota \t**Densidade Populacional**\n", A3dens, B4dens);
+                    jogador ++;
+                } else if (A3dens > B4dens) {
+                    printf("Derrota - Carta A3 X Carta B4 - Vitoria \t**Densidade Populacional**\n", A3dens, B4dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A3 - %.2f x %.2f - Carta B4\n", A3dens, B4dens);
+                    printf("Empate - Carta A3 X Carta B4 - Empate  \t**Densidade Populacional**\n", A3dens, B4dens);
                 }
 
-                //PIB Per Capita
+                //PIB Pcapita
                 if (A3pcap > B4pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B4 - Derrota\n", A3pcap, B4pcap);
+                    printf("Vitoria - Carta A3 X Carta B4 - Derrota \t**PIB Per Capita**\n", A3pcap, B4pcap);
+                    jogador ++;
                 } else if (A3pcap < B4pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B4 - Vitoria\n", A3pcap, B4pcap);
+                    printf("Derrota - Carta A3 X Carta B4 - Vitoria \t**PIB Per Capita**\n", A3pcap, B4pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A3 - %.2f x %.2f - Carta B4 - Empate\n", A3pcap, B4pcap);
+                    printf("Empate - Carta A3 X Carta B4 - Empate \t**PIB Per Capita**\n", A3pcap, B4pcap);
                 }
-                break;
+                
+                //Super poder 
+                if (A3sup > B4sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A3 X Carta B4 - Derrota \n", A3sup, B4sup);
+                    jogador ++;
+                } else if (A3sup < B4sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A3 X Carta B4 - Vitoria \n", A3sup, B4sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A3 X Carta B4 - Empate \n", A3sup, B4sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
 
+                break;
+                }             
+//#############################################################################################################################################################################       
                 default:
-                    break;
-                }
-            break;
-        default:
-            switch (Mcarta)
-            {
-            case 4:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A4 - %s x %s - Carta B1\n", A4cidade, B1cidade);
+                switch (Mcarta)
+                {
+//#############################################################################################################################################################################         
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A4 x Carta B1 - %s\n", A4cidade, B1cidade);
 
                 //Populacao
                 if (A4popul > B1popul) {
-                    printf("Vitoria - População: Carta A4 - %ld x %ld - Carta B1 - Derrota\n", A4popul, B1popul);
+                    printf("Vitoria - Carta A4 X Carta B1 - Derrota \t**Populacao**\n", A4popul, B1popul);
+                    jogador ++;
                 } else if (A4popul < B1popul) {
-                    printf("Derrota - População: Carta A4 - %ld x %ld - Carta B1 - Vitoria\n", A4popul, B1popul);
+                    printf("Derrota - Carta A4 X2 Carta B1 - Vitoria \t**Populacao**\n", A4popul, B1popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A4 - %ld x %ld - Carta B1 - Empate\n", A4popul, B1popul);
+                    printf("Empate - Carta A4 X2 Carta B1 - Empate \t**Populacao**\n", A4popul, B1popul);
                 }
 
                 //area
                 if (A4area > B1area) {
-                    printf("Vitoria - Área: Carta A4 - %ld x %ld - Carta B1 - Derrota\n", A4area, B1area);
+                    printf("Vitoria - Carta A4 X Carta B1 - Derrota \t**Area**\n", A4area, B1area);
+                    jogador ++;
                 } else if (A4area < B1area) {
-                    printf("Derrota - Área: Carta A4 - %ld x %ld - Carta B1 - Vitoria\n", A4area, B1area);
+                    printf("Derrota - Carta A4 X Carta B1 - Vitoria \t**Area**\n", A4area, B1area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A4 - %ld x %ld - Carta B1 - Empate\n", A4area, B1area);
+                    printf("Empate - Carta A4 X Carta B1 - Empate \t**Area**\n", A4area, B1area);
                 }
 
                 //PIB
                 if (A4pib > B1pib) {
-                    printf("Vitoria - PIB: Carta A4 - %.2f x %.2f - Carta B1 - Derrota\n", A4pib, B1pib);
+                    printf("Vitoria - Carta A4 X Carta B1 - Derrota \t**PIB**\n", A4pib, B1pib);
+                    jogador ++;
                 } else if (A4pib < B1pib) {
-                    printf("Derrota - PIB: Carta A4 - %.2f x %.2f - Carta B1 - Vitoria\n", A4pib, B1pib);
+                    printf("Derrota - Carta A4 X Carta B1 - Vitoria \t**PIB**\n", A4pib, B1pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A4 - %.2f x %.2f - Carta B1 - Empate\n", A4pib, B1pib);
+                    printf("Empate - Carta A4 X Carta B1 - Empate \t**PIB**\n", A4pib, B1pib);
                 }
 
                 //Pontos Tur
                 if (A4turist > B1turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A4 - %d x %d - Carta B1 - Derrota\n", A4turist, B1turist);
+                    printf("Vitoria - Carta A4 X Carta B1 - Derrota \t**Pontos Turisticos**\n", A4turist, B1turist);
+                    jogador ++;
                 } else if (A4turist < B1turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A4 - %d x %d - Carta B1 - Vitoria\n", A4turist, B1turist);
+                    printf("Derrota - Carta A4 X Carta B1 - Vitoria \t**Pontos Turisticos**\n", A4turist, B1turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A4 - %d x %d - Carta B1 - Empate\n", A4turist, B1turist);
+                    printf("Empate - Carta A4 X Carta B1 - Empate \t**Pontos Turisticos**\n", A4turist, B1turist);
                 }
 
                 //Dens Popul
-                if (A4dens > B1dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A4 - %.2f x %.2f - Carta B1 - Derrota\n", A4dens, B1dens);
-                } else if (A4dens < B1dens) {
-                    printf("Derrota - Densidade Populacional: Carta A4 - %.2f x %.2f - Carta B1 - Vitoria\n", A4dens, B1dens);
+                if (A4dens < B1dens) {
+                    printf("Vitoria - Carta A4 X Carta B1 - Derrota \t**Densidade Populacional**\n", A4dens, B1dens);
+                    jogador ++;
+                } else if (A4dens > B1dens) {
+                    printf("Derrota - Carta A4 X Carta B1 - Vitoria \t**Densidade Populacional**\n", A4dens, B1dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A4 - %.2f x %.2f - Carta B1\n", A4dens, B1dens);
+                    printf("Empate - Carta A4 X Carta B1 - Empate  \t**Densidade Populacional**\n", A4dens, B1dens);
                 }
 
                 //PIB Pcapita
                 if (A4pcap > B1pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A4 - %.2f x %.2f - Carta B1 - Derrota\n", A4pcap, B1pcap);
+                    printf("Vitoria - Carta A4 X Carta B1 - Derrota \t**PIB Per Capita**\n", A4pcap, B1pcap);
+                    jogador ++;
                 } else if (A4pcap < B1pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A4 - %.2f x %.2f - Carta B1 - Vitoria\n", A4pcap, B1pcap);
+                    printf("Derrota - Carta A4 X Carta B1 - Vitoria \t**PIB Per Capita**\n", A4pcap, B1pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A4 - %.2f x %.2f - Carta B1 - Empate\n", A4pcap, B1pcap);
+                    printf("Empate - Carta A4 X Carta B1 - Empate \t**PIB Per Capita**\n", A4pcap, B1pcap);
                 }
-                break;         
-               
-               
-               
+                
+                //Super poder 
+                if (A4sup > B1sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A4 X Carta B1 - Derrota \n", A4sup, B1sup);
+                    jogador ++;
+                } else if (A4sup < B1sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A4 X Carta B1 - Vitoria \n", A4sup, B1sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A4 X Carta B1 - Empate \n", A4sup, B1sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
+
+                break;               
+      
+//#############################################################################################################################################################################
                 case 2:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A4 - %s x %s - Carta B2\n", A4cidade, B2cidade);
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A4 x Carta B2 - %s\n", A4cidade, B2cidade);
 
                 //Populacao
                 if (A4popul > B2popul) {
-                    printf("Vitoria - População: Carta A4 - %ld x %ld - Carta B2 - Derrota\n", A4popul, B2popul);
+                    printf("Vitoria - Carta A4 X Carta B2 - Derrota \t**Populacao**\n", A4popul, B2popul);
+                    jogador ++;
                 } else if (A4popul < B2popul) {
-                    printf("Derrota - População: Carta A4 - %ld x %ld - Carta B2 - Vitoria\n", A4popul, B2popul);
+                    printf("Derrota - Carta A4 X2 Carta B2 - Vitoria \t**Populacao**\n", A4popul, B2popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A4 - %ld x %ld - Carta B2 - Empate\n", A4popul, B2popul);
+                    printf("Empate - Carta A4 X2 Carta B2 - Empate \t**Populacao**\n", A4popul, B2popul);
                 }
 
                 //area
                 if (A4area > B2area) {
-                    printf("Vitoria - Área: Carta A4 - %ld x %ld - Carta B2 - Derrota\n", A4area, B2area);
+                    printf("Vitoria - Carta A4 X Carta B2 - Derrota \t**Area**\n", A4area, B2area);
+                    jogador ++;
                 } else if (A4area < B2area) {
-                    printf("Derrota - Área: Carta A4 - %ld x %ld - Carta B2 - Vitoria\n", A4area, B2area);
+                    printf("Derrota - Carta A4 X Carta B2 - Vitoria \t**Area**\n", A4area, B2area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A4 - %ld x %ld - Carta B2 - Empate\n", A4area, B2area);
+                    printf("Empate - Carta A4 X Carta B2 - Empate \t**Area**\n", A4area, B2area);
                 }
 
                 //PIB
                 if (A4pib > B2pib) {
-                    printf("Vitoria - PIB: Carta A4 - %.2f x %.2f - Carta B2 - Derrota\n", A4pib, B2pib);
+                    printf("Vitoria - Carta A4 X Carta B2 - Derrota \t**PIB**\n", A4pib, B2pib);
+                    jogador ++;
                 } else if (A4pib < B2pib) {
-                    printf("Derrota - PIB: Carta A4 - %.2f x %.2f - Carta B2 - Vitoria\n", A4pib, B2pib);
+                    printf("Derrota - Carta A4 X Carta B2 - Vitoria \t**PIB**\n", A4pib, B2pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A4 - %.2f x %.2f - Carta B2 - Empate\n", A4pib, B2pib);
+                    printf("Empate - Carta A4 X Carta B2 - Empate \t**PIB**\n", A4pib, B2pib);
                 }
 
                 //Pontos Tur
                 if (A4turist > B2turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A4 - %d x %d - Carta B2 - Derrota\n", A4turist, B2turist);
+                    printf("Vitoria - Carta A4 X Carta B2 - Derrota \t**Pontos Turisticos**\n", A4turist, B2turist);
+                    jogador ++;
                 } else if (A4turist < B2turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A4 - %d x %d - Carta B2 - Vitoria\n", A4turist, B2turist);
+                    printf("Derrota - Carta A4 X Carta B2 - Vitoria \t**Pontos Turisticos**\n", A4turist, B2turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A4 - %d x %d - Carta B2 - Empate\n", A4turist, B2turist);
+                    printf("Empate - Carta A4 X Carta B2 - Empate \t**Pontos Turisticos**\n", A4turist, B2turist);
                 }
 
                 //Dens Popul
-                if (A4dens > B2dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A4 - %.2f x %.2f - Carta B2 - Derrota\n", A4dens, B2dens);
-                } else if (A4dens < B2dens) {
-                    printf("Derrota - Densidade Populacional: Carta A4 - %.2f x %.2f - Carta B2 - Vitoria\n", A4dens, B2dens);
+                if (A4dens < B2dens) {
+                    printf("Vitoria - Carta A4 X Carta B2 - Derrota \t**Densidade Populacional**\n", A4dens, B2dens);
+                    jogador ++;
+                } else if (A4dens > B2dens) {
+                    printf("Derrota - Carta A4 X Carta B2 - Vitoria \t**Densidade Populacional**\n", A4dens, B2dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A4 - %.2f x %.2f - Carta B2\n", A4dens, B2dens);
+                    printf("Empate - Carta A4 X Carta B2 - Empate  \t**Densidade Populacional**\n", A4dens, B2dens);
                 }
 
                 //PIB Pcapita
                 if (A4pcap > B2pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A4 - %.2f x %.2f - Carta B2 - Derrota\n", A4pcap, B2pcap);
+                    printf("Vitoria - Carta A4 X Carta B2 - Derrota \t**PIB Per Capita**\n", A4pcap, B2pcap);
+                    jogador ++;
                 } else if (A4pcap < B2pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A4 - %.2f x %.2f - Carta B2 - Vitoria\n", A4pcap, B2pcap);
+                    printf("Derrota - Carta A4 X Carta B2 - Vitoria \t**PIB Per Capita**\n", A4pcap, B2pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A4 - %.2f x %.2f - Carta B2 - Empate\n", A4pcap, B2pcap);
+                    printf("Empate - Carta A4 X Carta B2 - Empate \t**PIB Per Capita**\n", A4pcap, B2pcap);
                 }
+                
+                //Super poder 
+                if (A4sup > B2sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A4 X Carta B2 - Derrota \n", A4sup, B2sup);
+                    jogador ++;
+                } else if (A4sup < B2sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A4 X Carta B2 - Vitoria \n", A4sup, B2sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A4 X Carta B2 - Empate \n", A4sup, B2sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }                        
+                
                 break;
-
+//#############################################################################################################################################################################
 
                 case 3:
-                printf("\n\t\t****** Jogador x Máquina ******\n");
-                printf("\t\tCarta A4 - %s x %s - Carta B3\n", A4cidade, B3cidade);
+                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A4 x Carta B3 - %s\n", A4cidade, B3cidade);
 
                 //Populacao
                 if (A4popul > B3popul) {
-                    printf("Vitoria - População: Carta A4 - %ld x %ld - Carta B3 - Derrota\n", A4popul, B3popul);
+                    printf("Vitoria - Carta A4 X Carta B3 - Derrota \t**Populacao**\n", A4popul, B3popul);
+                    jogador ++;
                 } else if (A4popul < B3popul) {
-                    printf("Derrota - População: Carta A4 - %ld x %ld - Carta B3 - Vitoria\n", A4popul, B3popul);
+                    printf("Derrota - Carta A4 X2 Carta B3 - Vitoria \t**Populacao**\n", A4popul, B3popul);
+                    maquina ++;
                 } else {
-                    printf("Empate - População: Carta A4 - %ld x %ld - Carta B3 - Empate\n", A4popul, B3popul);
+                    printf("Empate - Carta A4 X2 Carta B3 - Empate \t**Populacao**\n", A4popul, B3popul);
                 }
 
                 //area
                 if (A4area > B3area) {
-                    printf("Vitoria - Área: Carta A4 - %ld x %ld - Carta B3 - Derrota\n", A4area, B3area);
+                    printf("Vitoria - Carta A4 X Carta B3 - Derrota \t**Area**\n", A4area, B3area);
+                    jogador ++;
                 } else if (A4area < B3area) {
-                    printf("Derrota - Área: Carta A4 - %ld x %ld - Carta B3 - Vitoria\n", A4area, B3area);
+                    printf("Derrota - Carta A4 X Carta B3 - Vitoria \t**Area**\n", A4area, B3area);
+                    maquina ++;
                 } else {
-                    printf("Empate - Área: Carta A4 - %ld x %ld - Carta B3 - Empate\n", A4area, B3area);
+                    printf("Empate - Carta A4 X Carta B3 - Empate \t**Area**\n", A4area, B3area);
                 }
 
                 //PIB
                 if (A4pib > B3pib) {
-                    printf("Vitoria - PIB: Carta A4 - %.2f x %.2f - Carta B3 - Derrota\n", A4pib, B3pib);
+                    printf("Vitoria - Carta A4 X Carta B3 - Derrota \t**PIB**\n", A4pib, B3pib);
+                    jogador ++;
                 } else if (A4pib < B3pib) {
-                    printf("Derrota - PIB: Carta A4 - %.2f x %.2f - Carta B3 - Vitoria\n", A4pib, B3pib);
+                    printf("Derrota - Carta A4 X Carta B3 - Vitoria \t**PIB**\n", A4pib, B3pib);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB: Carta A4 - %.2f x %.2f - Carta B3 - Empate\n", A4pib, B3pib);
+                    printf("Empate - Carta A4 X Carta B3 - Empate \t**PIB**\n", A4pib, B3pib);
                 }
 
                 //Pontos Tur
                 if (A4turist > B3turist) {
-                    printf("Vitoria - Pontos Turísticos: Carta A4 - %d x %d - Carta B3 - Derrota\n", A4turist, B3turist);
+                    printf("Vitoria - Carta A4 X Carta B3 - Derrota \t**Pontos Turisticos**\n", A4turist, B3turist);
+                    jogador ++;
                 } else if (A4turist < B3turist) {
-                    printf("Derrota - Pontos Turísticos: Carta A4 - %d x %d - Carta B3 - Vitoria\n", A4turist, B3turist);
+                    printf("Derrota - Carta A4 X Carta B3 - Vitoria \t**Pontos Turisticos**\n", A4turist, B3turist);
+                    maquina ++;
                 } else {
-                    printf("Empate - Pontos Turísticos: Carta A4 - %d x %d - Carta B3 - Empate\n", A4turist, B3turist);
+                    printf("Empate - Carta A4 X Carta B3 - Empate \t**Pontos Turisticos**\n", A4turist, B3turist);
                 }
 
                 //Dens Popul
-                if (A4dens > B3dens) {
-                    printf("Vitoria - Densidade Populacional: Carta A4 - %.2f x %.2f - Carta B3 - Derrota\n", A4dens, B3dens);
-                } else if (A4dens < B3dens) {
-                    printf("Derrota - Densidade Populacional: Carta A4 - %.2f x %.2f - Carta B3 - Vitoria\n", A4dens, B3dens);
+                if (A4dens < B3dens) {
+                    printf("Vitoria - Carta A4 X Carta B3 - Derrota \t**Densidade Populacional**\n", A4dens, B3dens);
+                    jogador ++;
+                } else if (A4dens > B3dens) {
+                    printf("Derrota - Carta A4 X Carta B3 - Vitoria \t**Densidade Populacional**\n", A4dens, B3dens);
+                    maquina ++;
                 } else {
-                    printf("Empate - Densidade Populacional: Carta A4 - %.2f x %.2f - Carta B3\n", A4dens, B3dens);
+                    printf("Empate - Carta A4 X Carta B3 - Empate  \t**Densidade Populacional**\n", A4dens, B3dens);
                 }
 
                 //PIB Pcapita
                 if (A4pcap > B3pcap) {
-                    printf("Vitoria - PIB Per Capita: Carta A4 - %.2f x %.2f - Carta B3 - Derrota\n", A4pcap, B3pcap);
+                    printf("Vitoria - Carta A4 X Carta B3 - Derrota \t**PIB Per Capita**\n", A4pcap, B3pcap);
+                    jogador ++;
                 } else if (A4pcap < B3pcap) {
-                    printf("Derrota - PIB Per Capita: Carta A4 - %.2f x %.2f - Carta B3 - Vitoria\n", A4pcap, B3pcap);
+                    printf("Derrota - Carta A4 X Carta B3 - Vitoria \t**PIB Per Capita**\n", A4pcap, B3pcap);
+                    maquina ++;
                 } else {
-                    printf("Empate - PIB Per Capita: Carta A4 - %.2f x %.2f - Carta B3 - Empate\n", A4pcap, B3pcap);
+                    printf("Empate - Carta A4 X Carta B3 - Empate \t**PIB Per Capita**\n", A4pcap, B3pcap);
                 }
+                
+                //Super poder 
+                if (A4sup > B3sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A4 X Carta B3 - Derrota \n", A4sup, B3sup);
+                    jogador ++;
+                } else if (A4sup < B3sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A4 X Carta B3 - Vitoria \n", A4sup, B3sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A4 X Carta B3 - Empate \n", A4sup, B3sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
+
                 break;
-
-
-
+//#############################################################################################################################################################################       
                 default:
-                    break;
+                                printf("\n\t****** Jogador x Máquina ******\n");
+                printf("%s - Carta A4 x Carta B4 - %s\n", A4cidade, B4cidade);
+
+                //Populacao
+                if (A4popul > B4popul) {
+                    printf("Vitoria - Carta A4 X Carta B4 - Derrota \t**Populacao**\n", A4popul, B4popul);
+                    jogador ++;
+                } else if (A4popul < B4popul) {
+                    printf("Derrota - Carta A4 X2 Carta B4 - Vitoria \t**Populacao**\n", A4popul, B4popul);
+                    maquina ++;
+                } else {
+                    printf("Empate - Carta A4 X2 Carta B4 - Empate \t**Populacao**\n", A4popul, B4popul);
                 }
+
+                //area
+                if (A4area > B4area) {
+                    printf("Vitoria - Carta A4 X Carta B4 - Derrota \t**Area**\n", A4area, B4area);
+                    jogador ++;
+                } else if (A4area < B4area) {
+                    printf("Derrota - Carta A4 X Carta B4 - Vitoria \t**Area**\n", A4area, B4area);
+                    maquina ++;
+                } else {
+                    printf("Empate - Carta A4 X Carta B4 - Empate \t**Area**\n", A4area, B4area);
+                }
+
+                //PIB
+                if (A4pib > B4pib) {
+                    printf("Vitoria - Carta A4 X Carta B4 - Derrota \t**PIB**\n", A4pib, B4pib);
+                    jogador ++;
+                } else if (A4pib < B4pib) {
+                    printf("Derrota - Carta A4 X Carta B4 - Vitoria \t**PIB**\n", A4pib, B4pib);
+                    maquina ++;
+                } else {
+                    printf("Empate - Carta A4 X Carta B4 - Empate \t**PIB**\n", A4pib, B4pib);
+                }
+
+                //Pontos Tur
+                if (A4turist > B4turist) {
+                    printf("Vitoria - Carta A4 X Carta B4 - Derrota \t**Pontos Turisticos**\n", A4turist, B4turist);
+                    jogador ++;
+                } else if (A4turist < B4turist) {
+                    printf("Derrota - Carta A4 X Carta B4 - Vitoria \t**Pontos Turisticos**\n", A4turist, B4turist);
+                    maquina ++;
+                } else {
+                    printf("Empate - Carta A4 X Carta B4 - Empate \t**Pontos Turisticos**\n", A4turist, B4turist);
+                }
+
+                //Dens Popul
+                if (A4dens < B4dens) {
+                    printf("Vitoria - Carta A4 X Carta B4 - Derrota \t**Densidade Populacional**\n", A4dens, B4dens);
+                    jogador ++;
+                } else if (A4dens > B4dens) {
+                    printf("Derrota - Carta A4 X Carta B4 - Vitoria \t**Densidade Populacional**\n", A4dens, B4dens);
+                    maquina ++;
+                } else {
+                    printf("Empate - Carta A4 X Carta B4 - Empate  \t**Densidade Populacional**\n", A4dens, B4dens);
+                }
+
+                //PIB Pcapita
+                if (A4pcap > B4pcap) {
+                    printf("Vitoria - Carta A4 X Carta B4 - Derrota \t**PIB Per Capita**\n", A4pcap, B4pcap);
+                    jogador ++;
+                } else if (A4pcap < B4pcap) {
+                    printf("Derrota - Carta A4 X Carta B4 - Vitoria \t**PIB Per Capita**\n", A4pcap, B4pcap);
+                    maquina ++;
+                } else {
+                    printf("Empate - Carta A4 X Carta B4 - Empate \t**PIB Per Capita**\n", A4pcap, B4pcap);
+                }
+                
+                //Super poder 
+                if (A4sup > B4sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Vitoria - Carta A4 X Carta B4 - Derrota \n", A4sup, B4sup);
+                    jogador ++;
+                } else if (A4sup < B4sup) {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Derrota - Carta A4 X Carta B4 - Vitoria \n", A4sup, B4sup);
+                    maquina ++;
+                } else {
+                    printf("\nAgora ultilizando o Super poder da carta!!!!\n");
+                    printf("Empate - Carta A4 X Carta B4 - Empate \n", A4sup, B4sup);
+                }
+                
+                printf("\n***CONTANDO OS PONTOS***");
+                printf("\nJogador %d x %d Maquina\n\n", jogador, maquina);
+                if (jogador > maquina){
+                    printf("VOCE GANHOU!\n\n");
+                }else if (jogador < maquina){
+                    printf("VOCE PERDEU!\n\n");
+                }else {
+                    printf("EMPATE!!\n\n");
+                }  
+
+                break;
+                } 
+
+//#############################################################################################################################################################################                          
+       
         break;
         }
     }else{
         printf("Opção Invalida! Comece novamente!! \n\n");
     }
-
-
-
-    // switch (decisao)
-    // {
-    // case 1:
-    //     printf("Opção 1\n");
-    //     break;
-
-    // case 2:
-    //     printf("Opção 2\n");
-
-    //     break;
-        
-    // default:
-    //     printf("Opção Invalida\n");
-    //     break;
-    // }
-    
-    // // Exibição dos Dados das Cartas:
-    // // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
     return 0;
 }
